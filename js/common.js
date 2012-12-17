@@ -1,5 +1,5 @@
 /*globals igic__, escape, unescape */
-/*jshint white:false */
+// This file gets put together with several others to create bookmarklet.js and widget.js
 
 (function($) {
 

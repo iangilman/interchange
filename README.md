@@ -1,3 +1,11 @@
+# Interchange:
+
+Flip easily between media sites. See http://iangilman.com/interchange/
+
+# Development
+
+This is just a chunk from my website, so the PHP files won't work. The bookmarklet should, however, which is the point of sharing this repository. You'll need to use [CodeKit](http://incident57.com/codekit/), however, to build; see me for info on getting that set up. 
+
 # TODO: 
 
 ## Common
