@@ -144,7 +144,9 @@
         var data = {};
         
         var postTitle = $.trim($(".post-title").text())
-          .replace(/written by/i, 'by');
+          .replace(/written by/i, 'by')
+          .replace(/written and illustrated by/i, 'by');
+          
         var match = postTitle.match(/^(.*?),? by ([^,]*)/);
         if (match) {
           data.title = match[1];
