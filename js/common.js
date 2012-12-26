@@ -1,6 +1,6 @@
 /*globals igic__, escape, unescape */
 // This file gets put together with several others to create bookmarklet.js and widget.js
-
+// EG adding a comment to nondestructively make sure I'm working in a branch now....
 (function($) {
 
   // ##########
