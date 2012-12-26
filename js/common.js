@@ -210,6 +210,10 @@
       return config.hide.amazon;
     }
   }, {
+    name: 'Barnes & Noble',
+    site: 'barnesandnoble',
+    url: 'http://www.barnesandnoble.com/s/'
+  }, {
     name: 'Rdio',
     site: 'rdio',
     url: function(artist, title) {
