@@ -19,7 +19,8 @@ Yes, those are both Mac-only... if you need a cross-platform solution, ask me an
 1. Click on bookmarkl.js in the CodeKit window and hit "Process"; this will create bookmarklet.js. From here on, as long as CodeKit is running, it'll detect changes to the files and automatically process.
 1. In MAMP (not MAMP Pro), hit Preferences, then Apache, and select your interchange folder.
 1. If everything is working, you should be able to go to http://localhost:8888/js/bookmarklet.js and see a file full of code. This is assuming you have 8888 set up as your port for MAMP.
-1. In your browser, add a new bookmark to your bookmark bar, and give it this for the URL: `javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://localhost:8888/js/bookmarklet.js');void(b.appendChild(z));}else{}`
+1. In your browser, add a new bookmark to your bookmark bar, and give it this for the URL: 
+  * javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://localhost:8888/js/bookmarklet.js');void(b.appendChild(z));}else{}
 1. Now go to a product page on, say, Amazon, and hit the bookmarklet in your bookmark bar.
 
 ## Architecture
