@@ -1,4 +1,4 @@
-/*globals */
+// widget-base.js
 // This file gets put together with several others to create widget.js
 
 (function($) {
