@@ -4,19 +4,18 @@ Flip easily between media sites. See http://iangilman.com/interchange/
 
 # Development
 
-This is just a chunk from my website, so the PHP files won't work. The bookmarklet should, however, which is the point of sharing this repository.
-
 ## Prerequisites
 
-* [CodeKit](http://incident57.com/codekit/) (build system)
-* [MAMP](http://mamp.info/) (local server)
-
-Yes, those are both Mac-only... if you need a cross-platform solution, ask me and we can try to set something up.
+* [Grunt](http://gruntjs.com/) (build system)
+* [MAMP](http://mamp.info/) or similar (local server)
 
 ## Setup
 
-1. In the main CodeKit window, hit the little plus at the bottom and select "Add project", then select the interchange folder.
-1. Click on bookmarkl.js in the CodeKit window and hit "Process"; this will create bookmarklet.js. From here on, as long as CodeKit is running, it'll detect changes to the files and automatically process.
+1. Install the prerequisites.
+1. Download this repository.
+1. In your Terminal, `cd` into the repository directory.
+1. Run `grunt` once to make the bookmarklet.
+1. Run `grunt watch` for as long as you're developing; it'll automatically make the bookmarklet whenever you make changes.
 1. In MAMP (not MAMP Pro), hit Preferences, then Apache, and select your interchange folder.
 1. If everything is working, you should be able to go to http://localhost:8888/js/bookmarklet.js and see a file full of code. This is assuming you have 8888 set up as your port for MAMP.
 1. In your browser, add a new bookmark to your bookmark bar, and give it this for the URL: 
@@ -25,11 +24,9 @@ Yes, those are both Mac-only... if you need a cross-platform solution, ask me an
 
 ## Architecture
 
-CodeKit automatically combines bookmarkl.js, jquery.js, and common.js into bookmarklet.js. It does the same for widg.js, jquery.js, and common.js, turning them into widget.js.
+Grunt automatically combines bookmarklet-base.js, jquery.js, and common.js into bookmarklet.js. It does the same for widget-base.js, jquery.js, and common.js, turning them into widget.js. In general you should only modify files in the `src` folder; the `js` folder is just for the built files.
 
 Most of the interesting stuff is in common.js. At the top, there is a big block of sources (for reading off of websites) and destinations (for linking to websites).
-
-Using CodeKit for the build system is a bit unusual, but it was the easiest thing when I got started. Also, I do like CodeKit, especially its linting feature. The downside (besides it being Mac-only and paid software) is that it's constantly changing its codekit-config.json, which adds a lot of noise to the github repository. One of these days I'll switch over to something else, I suppose. At any rate, some sort of build system is necessary, to minimize the number of files the bookmarklet needs to load.
 
 Any additional questions, contact ian@iangilman.com.
 
