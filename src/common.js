@@ -392,19 +392,20 @@
       var type = config.type || '';
       
       if (!artist && !title) {
+        var data;
         var parts = location.hostname.split('.');
-        if(parts.length < 2)
-          site = location.hostname;
-        else
-          site = parts[parts.length - 2];
-          
-        if (site && sources[site]) {
-          var data = sources[site].get();
-          artist = data.artist || '';
-          title = data.title || '';
-          isbn = data.isbn || '';
-          type = data.type || '';
-        } else {
+        for (var a = 0; a < parts.length; a++) {
+          site = parts[a];
+          if (site && sources[site]) {
+            data = sources[site].get();
+            artist = data.artist || '';
+            title = data.title || '';
+            isbn = data.isbn || '';
+            type = data.type || '';
+          }
+        }
+
+        if (!data) {
           return '<div>Interchange doesn\'t work on this site. '
               + 'To request support for it, use the "Problem?" link below.</div>';
         }
