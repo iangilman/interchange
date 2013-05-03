@@ -76,8 +76,8 @@
             data.artist = match[1];
         }
         
-        data.artist = unescape(data.artist).replace(/_/g, " ");
-        data.title = unescape(data.title).replace(/_/g, " ");
+        data.artist = unescape(data.artist || '').replace(/_/g, " ");
+        data.title = unescape(data.title || '').replace(/_/g, " ");
           
         return data;
       }
@@ -93,7 +93,7 @@
         if (match)
           data.artist = match[1];
         
-        data.artist = unescape(data.artist).replace(/_/g, " ");
+        data.artist = unescape(data.artist || '').replace(/_/g, " ");
           
         return data;
       }
