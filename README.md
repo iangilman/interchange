@@ -6,20 +6,19 @@ Flip easily between media sites. See http://iangilman.com/interchange/
 
 ## Prerequisites
 
-* [Grunt](http://gruntjs.com/) (build system)
-* [MAMP](http://mamp.info/) or similar (local server)
+* [Node](http://nodejs.org/) (for build system)
 
 ## Setup
 
 1. Install the prerequisites.
 1. Download this repository.
 1. In your Terminal, `cd` into the repository directory.
+1. Run `npm install` to load Grunt, the build system.
 1. Run `grunt` once to make the bookmarklet.
-1. Run `grunt watch` for as long as you're developing; it'll automatically make the bookmarklet whenever you make changes.
-1. In MAMP (not MAMP Pro), hit Preferences, then Apache, and select your interchange folder.
-1. If everything is working, you should be able to go to http://localhost:8888/js/bookmarklet.js and see a file full of code. This is assuming you have 8888 set up as your port for MAMP.
+1. Run `grunt server watch` for as long as you're developing; it'll automatically make the bookmarklet whenever you make changes, and it'll serve the files at http://localhost:8000/ for you.
+1. If everything is working, you should be able to go to http://localhost:8000/js/bookmarklet.js and see a file full of code.
 1. In your browser, add a new bookmark to your bookmark bar, and give it this for the URL: 
-  * javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://localhost:8888/js/bookmarklet.js');void(b.appendChild(z));}else{}
+  * javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://localhost:8000/js/bookmarklet.js');void(b.appendChild(z));}else{}
 1. Now go to a product page on, say, Amazon, and hit the bookmarklet in your bookmark bar.
 
 ## Architecture
@@ -38,6 +37,7 @@ Any additional questions, contact ian@iangilman.com.
 * Explicit close box
 * Watch for window size events and resize/reposition accordingly
 * Add google analytics or some such for tracking
+* Support Vdio for both in and out
 
 ## Widget
 
