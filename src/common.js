@@ -84,6 +84,22 @@
     },
 
     // ----------
+    vdio: {
+      get: function() {
+        var data = {};
+        
+        data.type = 'movie';
+        var match = location.href.match(/movie\/(.*)\//i);
+        if (match)
+          data.title = match[1];
+        
+        data.title = unescape(data.title || '').replace(/_/g, " ");
+          
+        return data;
+      }
+    },
+
+    // ----------
     letsfathom: {
       get: function() {
         var data = {};
@@ -222,6 +238,18 @@
     },
     type: 'music'
   }, {
+    name: 'Vdio',
+    site: 'vdio',
+    url: 'http://www.vdio.com/movie/',
+    type: 'movie'
+  }, {
+    name: 'YouTube Trailers',
+    site: 'youtube',
+    url: function(artist, title) {
+      return 'https://www.youtube.com/results?search_query=' + title + '+trailer';
+    },
+    type: 'movie'
+  }, {
     name: 'Goodreads',
     site: 'goodreads',
     url: 'http://www.goodreads.com/search/search?search_type=books&search[query]=',
@@ -354,8 +382,8 @@
         })
         .appendTo(this.$container);
   
-      html = '<a href="http://iangilman.com/interchange/" target="_blank">INTERCHANGE</a>'
-        + ' - <a href="mailto:ian@iangilman.com?subject=interchange problem&body='
+      html = '<a style="color:#666" href="http://iangilman.com/interchange/" target="_blank">INTERCHANGE</a>'
+        + ' - <a style="color:#666" href="mailto:ian@iangilman.com?subject=interchange problem&body='
           + location.href
           + '" target="_blank">Problem?</a>';
         
@@ -402,6 +430,7 @@
             title = data.title || '';
             isbn = data.isbn || '';
             type = data.type || '';
+            break;
           }
         }
 
@@ -452,7 +481,7 @@
         }
               
         if (url && site != v.site && (!v.type || v.type == type)) {
-          html += '<a href="' + url + '" target="_blank">' + v.name + '</a><br>';
+          html += '<a style="color:#666" href="' + url + '" target="_blank">' + v.name + '</a><br>';
         }
       });
       
