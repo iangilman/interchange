@@ -243,6 +243,11 @@
     url: 'http://www.vdio.com/movie/',
     type: 'movie'
   }, {
+    name: 'IMDb',
+    site: 'imdb',
+    url: 'http://www.imdb.com/find?s=tt&q=',
+    type: 'movie'
+  }, {
     name: 'YouTube Trailers',
     site: 'youtube',
     url: function(artist, title) {
