@@ -25,8 +25,15 @@
         
         // ___ title
         data.title = $('#btAsinTitle').text();
-        if (!data.title)
+        if (!data.title) {
           data.title = $('.dpProductTitle').text();
+        }
+
+        if (!data.title) {
+          var $h1 = $('h1#title').clone();
+          $h1.find('span').remove();
+          data.title = $h1.text();
+        }
         
         // ___ artist
         data.artist = $(".contributorNameTrigger a:first-child").text();
@@ -35,6 +42,14 @@
           if ($pipe) {
             data.artist = $pipe.prev().text();
           }
+        }
+
+        if (!data.artist) {
+          data.artist = $('#byline .author:first-child > span > a').text();
+        }
+
+        if (!data.artist) {
+          data.artist = $('#byline .author:first-child > a').text();
         }
         
         // ___ type      
