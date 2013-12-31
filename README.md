@@ -31,6 +31,11 @@ Any additional questions, contact ian@iangilman.com.
 
 # TODO
 
+## Soon
+
+* Support http://dvd.netflix.com/Movie/Now-You-See-Me/70243464 URLs
+* Goodreads is now blocking bookmarklets... can I get around this with an addon?
+
 ## Common
 
 * http://www.worldcat.org/
@@ -38,10 +43,12 @@ Any additional questions, contact ian@iangilman.com.
 * Watch for window size events and resize/reposition accordingly
 * Add google analytics or some such for tracking
 * Support Vdio for both in and out
+* auto-show which sites have sources and destinations on the info page, based on the data in the script
 
 ## Widget
 
 * Have it be a link to an interchange page with the proper search, so it'll work in RSS feeds. Then override via JavaScript if possible for popup.
+* live preview on creation page
 
 ## Old
 

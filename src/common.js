@@ -99,22 +99,6 @@
     },
 
     // ----------
-    vdio: {
-      get: function() {
-        var data = {};
-        
-        data.type = 'movie';
-        var match = location.href.match(/movie\/(.*)\//i);
-        if (match)
-          data.title = match[1];
-        
-        data.title = unescape(data.title || '').replace(/_/g, " ");
-          
-        return data;
-      }
-    },
-
-    // ----------
     letsfathom: {
       get: function() {
         var data = {};
@@ -252,11 +236,6 @@
       return '';
     },
     type: 'music'
-  }, {
-    name: 'Vdio',
-    site: 'vdio',
-    url: 'http://www.vdio.com/movie/',
-    type: 'movie'
   }, {
     name: 'IMDb',
     site: 'imdb',
