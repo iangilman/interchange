@@ -121,12 +121,12 @@
         
         data.type = 'music';
         var re = /music\/(.*)\/(.*)/i;
-        if (re.test(location.href)) {
+        if (re.test(location.pathname)) {
           data.artist = unescape(RegExp.$1);
           data.title = unescape(RegExp.$2);
         } else {
           re = /music\/(.*)/i;
-          if (re.test(location.href))
+          if (re.test(location.pathname))
             data.artist = unescape(RegExp.$1);
         }
           
