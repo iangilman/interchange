@@ -213,6 +213,18 @@
           
         return data;
       }
+    },
+
+    // ----------
+    imdb: {
+      get: function() {
+        var data = {};
+
+        data.title = document.title.replace(/ \(.*$/, '');
+        data.type = 'movie';
+
+        return data;
+      }
     }
   };
 
@@ -240,6 +252,11 @@
     name: 'IMDb',
     site: 'imdb',
     url: 'http://www.imdb.com/find?s=tt&q=',
+    type: 'movie'
+  }, {
+    name: 'Netflix',
+    site: 'netflix',
+    url: 'http://dvd.netflix.com/Search?v1=',
     type: 'movie'
   }, {
     name: 'YouTube Trailers',
