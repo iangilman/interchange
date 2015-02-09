@@ -24,7 +24,12 @@
         }
         
         // ___ title
-        data.title = $('#btAsinTitle').text();
+        data.title = $('#productTitle').text();
+        
+        if (!data.title) {
+          data.title = $('#btAsinTitle').text();
+        }
+        
         if (!data.title) {
           data.title = $('.dpProductTitle').text();
         }
@@ -34,7 +39,7 @@
           $h1.find('span').remove();
           data.title = $h1.text();
         }
-        
+
         // ___ artist
         data.artist = $(".contributorNameTrigger a:first-child").text();
         if (!data.artist) {
@@ -144,7 +149,7 @@
         data.artist = $(".titleBlock > .author > a").text();
         data.artist = data.artist.replace(/\(.*\)/, "");
         
-        if ($(".titleBlock > .author > .format").text().toLowerCase().indexOf("book") != -1)
+        if (/(book|graphic novel)/i.test($(".titleBlock > .author > .format").text()))
           data.type = "book";
         else 
           data.type = "music";
