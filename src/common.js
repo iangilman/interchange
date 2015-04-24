@@ -302,6 +302,10 @@
     site: 'bibliocommons',
     url: 'http://seattle.bibliocommons.com/search?t=smart&q=' 
   }, {
+    name: 'King County Library System',
+    site: 'bibliocommons',
+    url: 'http://kcls.bibliocommons.com/search?t=smart&q=' 
+  }, {
     name: 'Fathom',
     site: 'letsfathom',
     url: function(artist, title) {
