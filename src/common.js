@@ -230,6 +230,18 @@
 
         return data;
       }
+    },
+
+    // ----------
+    letterboxd: {
+      get: function() {
+        var data = {};
+
+        data.title = $('.film-title').eq(0).text();
+        data.type = 'movie';
+
+        return data;
+      }
     }
   };
 
@@ -262,6 +274,13 @@
     name: 'Netflix',
     site: 'netflix',
     url: 'http://dvd.netflix.com/Search?v1=',
+    type: 'movie'
+  }, {
+    name: 'Letterboxd',
+    site: 'letterboxd',
+    url: function(artist, title) {
+      return 'http://letterboxd.com/film/' + title.toLowerCase().replace(/ /g, '-') + '/';
+    },
     type: 'movie'
   }, {
     name: 'YouTube Trailers',
