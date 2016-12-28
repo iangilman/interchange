@@ -237,7 +237,7 @@
       get: function() {
         var data = {};
 
-        data.title = $('.film-title').eq(0).text();
+        data.title = $('#featured-film-header h1').eq(0).text();
         data.type = 'movie';
 
         return data;
@@ -253,18 +253,6 @@
     hide: function(config) {
       return config.hide.amazon;
     }
-  }, {
-    name: 'Rdio',
-    site: 'rdio',
-    url: function(artist, title) {
-      if(artist && title) {
-        return 'http://rdio.com/#/artist/' + artist + '/album/' + title;
-      } else if(artist) {
-        return 'http://rdio.com/#/artist/' + artist;
-      }
-      return '';
-    },
-    type: 'music'
   }, {
     name: 'IMDb',
     site: 'imdb',
@@ -324,16 +312,16 @@
     name: 'King County Library System',
     site: 'bibliocommons',
     url: 'http://kcls.bibliocommons.com/search?t=smart&q=' 
-  }, {
-    name: 'Fathom',
-    site: 'letsfathom',
-    url: function(artist, title) {
-      if(artist) {
-        return 'http://letsfathom.com/#/artist/' + artist + '/';
-      }
-      return '';
-    },
-    type: 'music'
+  // }, {
+  //   name: 'Fathom',
+  //   site: 'letsfathom',
+  //   url: function(artist, title) {
+  //     if(artist) {
+  //       return 'http://letsfathom.com/#/artist/' + artist + '/';
+  //     }
+  //     return '';
+  //   },
+  //   type: 'music'
   }, {
     name: 'North Olympic Library System',
     site: 'nols',
