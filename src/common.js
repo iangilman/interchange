@@ -312,16 +312,16 @@
     name: 'King County Library System',
     site: 'bibliocommons',
     url: 'http://kcls.bibliocommons.com/search?t=smart&q=' 
-  // }, {
-  //   name: 'Fathom',
-  //   site: 'letsfathom',
-  //   url: function(artist, title) {
-  //     if(artist) {
-  //       return 'http://letsfathom.com/#/artist/' + artist + '/';
-  //     }
-  //     return '';
-  //   },
-  //   type: 'music'
+  }, {
+    name: 'Fathom',
+    site: 'letsfathom',
+    url: function(artist, title) {
+      if(artist) {
+        return 'http://letsfathom.com/#/artist/' + artist + '/';
+      }
+      return '';
+    },
+    type: 'music'
   }, {
     name: 'North Olympic Library System',
     site: 'nols',
