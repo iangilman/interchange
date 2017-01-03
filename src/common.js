@@ -125,7 +125,7 @@
         var data = {};
         
         data.type = 'music';
-        var re = /music\/(.*)\/(.*)/i;
+        var re = /music\/([^\/]*)\/([^\/]*)/i;
         if (re.test(location.pathname)) {
           data.artist = unescape(RegExp.$1);
           data.title = unescape(RegExp.$2);
@@ -134,6 +134,9 @@
           if (re.test(location.pathname))
             data.artist = unescape(RegExp.$1);
         }
+
+        data.artist = data.artist.replace(/\+/g, ' ');
+        data.title = (data.title || '').replace(/\+/g, ' ');
           
         return data;
       }
