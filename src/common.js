@@ -57,7 +57,11 @@
           data.artist = $('#byline .author:first-child > a').text();
         }
         
-        // ___ type      
+        if (!data.artist) {
+          data.artist = $('#bylineInfo .author:first-child > a').text();
+        }
+        
+        // ___ type
         if (data.isbn || data.title.search(/kindle/i) != -1)
           data.type = 'book';
         else
@@ -147,14 +151,14 @@
       get: function() {
         var data = {};
         
-        data.title = $(".titleBlock > h1").text();
+        data.title = $(".titleBlock h1").text();
         
-        data.artist = $(".titleBlock > .author > a").text();
+        data.artist = $(".titleBlock .author > a").text();
         data.artist = data.artist.replace(/\(.*\)/, "");
         
-        if (/(book|graphic novel)/i.test($(".titleBlock > .author > .format").text()))
+        if (/(book|graphic novel)/i.test($(".titleBlock .author > .format").text()))
           data.type = "book";
-        else 
+        else
           data.type = "music";
           
         return data;
@@ -187,7 +191,17 @@
         var data = {};
         
         data.title = $('#content-left h2').eq(0).text();
+        
+        if (!data.title) {
+          data.title = $('.book-title').text();
+        }
+        
         data.artist = $('.ibc-descrip a').eq(0).text();
+        
+        if (!data.artist) {
+          data.artist = $('.ibc-authors a').text();
+        }
+        
         data.type = 'book';
         if (!data.title || !data.artist) {
           data.title = data.artist = '';
@@ -204,7 +218,12 @@
         
         var $title = $('#content .book-title').eq(0);
         data.title = $title.text();
+        
         data.artist = $title.next('a').text();
+        if (!data.artist) {
+          data.artist = $title.next('span').find('a').text();
+        }
+        
         data.type = 'book';
           
         return data;
@@ -310,11 +329,11 @@
   }, {
     name: 'Seattle Public Library',
     site: 'bibliocommons',
-    url: 'http://seattle.bibliocommons.com/search?t=smart&q=' 
+    url: 'http://seattle.bibliocommons.com/search?t=smart&q='
   }, {
     name: 'King County Library System',
     site: 'bibliocommons',
-    url: 'http://kcls.bibliocommons.com/search?t=smart&q=' 
+    url: 'http://kcls.bibliocommons.com/search?t=smart&q='
   }, {
     name: 'Fathom',
     site: 'letsfathom',
@@ -328,11 +347,11 @@
   }, {
     name: 'North Olympic Library System',
     site: 'nols',
-    url: 'http://pac.nols.org/polaris/search/searchresults.aspx?type=Keyword&term=' 
+    url: 'http://pac.nols.org/polaris/search/searchresults.aspx?type=Keyword&term='
   }, {
     name: 'San Diego County Library',
     site: 'sdcl',
-    url: 'http://encore.co.san-diego.ca.us/iii/encore/search?target=' 
+    url: 'http://encore.co.san-diego.ca.us/iii/encore/search?target='
   }];
   
   // ##########
@@ -349,23 +368,23 @@
             
       this.$container = $('<div>')
         .css({
-          position: 'fixed', 
+          position: 'fixed',
           left: 0,
           top: 0,
           width: '100%',
           height: '100%',
-          zIndex: 20000, 
+          zIndex: 20000,
           fontSize: 14,
           fontFamily: 'Arial, sans-serif',
           color: 'black'
         })
         .appendTo('body')
         .hide()
-        .fadeIn(200);     
+        .fadeIn(200);
   
       this.$shield = $('<div>')
         .css({
-          position: 'fixed', 
+          position: 'fixed',
           left: 0,
           top: 0,
           width: '100%',
@@ -398,16 +417,16 @@
       
       this.$display = $(html)
         .css({
-          left: left, 
+          left: left,
           top: top,
           width: width,
           height: height,
-          position: 'fixed', 
+          position: 'fixed',
           backgroundColor: 'white',
           color: 'black',
           zIndex: 200,
-          padding: padding, 
-          'text-align': 'left', 
+          padding: padding,
+          'text-align': 'left',
           '-moz-border-radius': '10px',
           '-webkit-border-radius': '10px',
           'border-radius': '10px',
@@ -437,12 +456,12 @@
       var self = this;
       if(this.$container) {
         this.$container.fadeOut(200, function() {
-          self.$container.remove(); 
+          self.$container.remove();
           self.$container = null;
           // TODO: is there a way to either remove the JavaScript entirely
-          // or just reactivate the same JavaScript if the user hits the 
+          // or just reactivate the same JavaScript if the user hits the
           // bookmarklet again?
-        }); 
+        });
       }
     },
   
@@ -491,11 +510,11 @@
             + 'If you think it should, use the "Problem?" link below.</div>';
       }
       
-      var html = 
+      var html =
         '<div>'
           + '<div style="font-size:20px">' + displayTitle + '</div>'
           + '<div style="font-size:16px">' + displayArtist + '</div>'
-          + '<br>Find it on:<br>';         
+          + '<br>Find it on:<br>';
       
       $.each(destinations, function(i, v) {
         if (v.hide && v.hide(config)) {
