@@ -235,8 +235,11 @@
       get: function() {
         var data = {};
         
-        data.title = $('.title-wrapper').eq(0).text();
-        data.type = 'movie';
+        var title = location.pathname.replace(/^\/Movie\/([^\/]*).*$/, '$1');
+        if (title !== location.pathname) {
+          data.title = title.replace(/-/g, ' ').trim();
+          data.type = 'movie';
+        }
           
         return data;
       }
